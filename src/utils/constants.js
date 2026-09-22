@@ -34,3 +34,9 @@ export const STORAGE_KEYS = {
   INCOMES: 'incomes',
   EXPENSES: 'expenses',
 }
+// Валюта
+export const CURRENCY = {
+  symbol: 'сўм',
+  code: 'UZS',
+  locale: 'uz-UZ',
+}

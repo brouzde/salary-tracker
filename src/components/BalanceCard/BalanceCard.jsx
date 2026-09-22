@@ -1,9 +1,7 @@
+import { formatCurrency } from '../../utils/formatters'
 import styles from './BalanceCard.module.css'
 
 function BalanceCard({ title, amount = 0, color = 'var(--primary)', description }) {
-  // Форматирование суммы с разделителями тысяч
-  const formattedAmount = (amount ?? 0).toLocaleString('ru-RU')
-
   return (
     <div className={styles.card}>
       <div 
@@ -16,7 +14,7 @@ function BalanceCard({ title, amount = 0, color = 'var(--primary)', description 
           className={styles.amount}
           style={{ '--amount-color': color }}
         >
-          {formattedAmount} ₽
+          {formatCurrency(amount)}
         </div>
         {description && (
           <div className={styles.description}>{description}</div>

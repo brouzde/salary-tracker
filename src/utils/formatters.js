@@ -1,12 +1,14 @@
+import { CURRENCY } from './constants'
+
 /**
- * Форматирование суммы в рубли
+ * Форматирование суммы в узбекские сумы
  * @param {number} amount - Сумма
- * @returns {string} Отформатированная строка (например, "1 234 ₽")
+ * @returns {string} Отформатированная строка (например, "1 234 567 сўм")
  */
 export const formatCurrency = (amount) => {
-  if (amount === null || amount === undefined) return '0 ₽'
+  if (amount === null || amount === undefined) return `0 ${CURRENCY.symbol}`
   
-  return `${Number(amount).toLocaleString('ru-RU')} ₽`
+  return `${Number(amount).toLocaleString(CURRENCY.locale)} ${CURRENCY.symbol}`
 }
 
 /**

@@ -1,4 +1,5 @@
 import EmptyState from '../EmptyState/EmptyState'
+import { formatCurrency } from '../../utils/formatters'
 import styles from './TransactionList.module.css'
 
 function TransactionList({ transactions = [], onEdit, onDelete }) {
@@ -45,7 +46,7 @@ function TransactionList({ transactions = [], onEdit, onDelete }) {
 
           <div className={`${styles.amount} ${styles[transaction.type]}`}>
             {transaction.type === 'income' ? '+' : '-'}
-            {(transaction.amount ?? 0).toLocaleString('ru-RU')} ₽
+            {formatCurrency(transaction.amount)}
           </div>
 
           {(onEdit || onDelete) && (
