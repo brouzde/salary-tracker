@@ -1,20 +1,6 @@
 import { useState, useEffect } from 'react'
+import { INCOME_CATEGORIES, EXPENSE_CATEGORIES } from '../../utils/constants'
 import styles from './TransactionForm.module.css'
-
-// Fallback категории, если константы ещё не импортированы
-const INCOME_CATEGORIES = [
-  { id: 'salary', label: 'Зарплата' },
-  { id: 'freelance', label: 'Подработка' },
-  { id: 'bonus', label: 'Премия' },
-  { id: 'other', label: 'Прочее' },
-]
-
-const EXPENSE_CATEGORIES = [
-  { id: 'groceries', label: 'Продукты' },
-  { id: 'utilities', label: 'Коммуналка' },
-  { id: 'rent', label: 'Аренда' },
-  { id: 'other', label: 'Прочее' },
-]
 
 function TransactionForm({ onSubmit, onCancel, editData }) {
   const [type, setType] = useState(editData?.type || 'income')
@@ -84,7 +70,7 @@ function TransactionForm({ onSubmit, onCancel, editData }) {
       </div>
 
       <div className={styles.field}>
-        <label className={styles.label}>Сумма (₽)</label>
+        <label className={styles.label}>Сумма</label>
         <input
           type="number"
           className={styles.input}

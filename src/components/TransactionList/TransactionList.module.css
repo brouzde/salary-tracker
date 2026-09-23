@@ -9,6 +9,8 @@
   padding: var(--spacing-lg);
   border-bottom: 1px solid var(--border);
   transition: background-color var(--transition);
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
 }
 
 .row:last-child {
@@ -36,6 +38,17 @@
   display: flex;
   flex-direction: column;
   gap: var(--spacing-xs);
+  min-width: 0;
+  overflow: hidden;
+}
+
+.category {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .category {
@@ -53,6 +66,8 @@
   font-size: 1.125rem;
   font-weight: 700;
   margin-left: var(--spacing-lg);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .income {

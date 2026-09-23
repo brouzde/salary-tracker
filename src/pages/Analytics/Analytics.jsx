@@ -5,12 +5,13 @@ import { getByCategory, getMonthlySummary } from '../../services/summaryService'
 import styles from './Analytics.module.css'
 
 function Analytics() {
-  const [categoryData, setCategoryData] = useState([])
+  const [expenseCategoryData, setExpenseCategoryData] = useState([])
+  const [incomeCategoryData, setIncomeCategoryData] = useState([])
   const [monthlyData, setMonthlyData] = useState([])
 
-  // Загрузка данных
   const refreshData = () => {
-    setCategoryData(getByCategory('expense'))
+    setExpenseCategoryData(getByCategory('expense'))
+    setIncomeCategoryData(getByCategory('income'))
     setMonthlyData(getMonthlySummary(6))
   }
 
@@ -27,8 +28,15 @@ function Analytics() {
       <div className={styles.chartsGrid}>
         <div className={styles.chartCard}>
           <PieChart 
-            data={categoryData}
+            data={expenseCategoryData}
             title="Расходы по категориям"
+          />
+        </div>
+
+        <div className={styles.chartCard}>
+          <PieChart 
+            data={incomeCategoryData}
+            title="Доходы по категориям"
           />
         </div>
 
